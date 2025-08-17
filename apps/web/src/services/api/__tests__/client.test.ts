@@ -78,7 +78,7 @@ describe('apiClient', () => {
 
   it('should handle server errors with custom message', async () => {
     mockAxios.onPost('/auth/login').reply(400, {
-      message: 'Invalid credentials provided.',
+      error: 'Invalid credentials provided.',
     });
 
     await expect(

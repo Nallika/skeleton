@@ -5,9 +5,7 @@ Next.js frontend application with authorization.
 ## Purpose
 
 - Provide user interface for bot comparison
-- Handle real-time chat communication
 - Manage user authentication and sessions
-- Implement quiz mode with voting system
 - Provide responsive mobile-first design
 
 ## Structure
@@ -27,7 +25,6 @@ src/
 ## Key Features
 
 - **Authentication**: Login/register with email and Google OAuth
-- **Session Management**: Save and resume chat sessions
 - **Responsive Design**: Mobile-first approach
 
 ## Pages

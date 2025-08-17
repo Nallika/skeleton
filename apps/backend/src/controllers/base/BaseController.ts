@@ -2,7 +2,11 @@ import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import logger from '../../services/logger/logger'; // Assuming logger is correctly imported
 import { AuthService } from '../../services/auth/AuthService';
-import { ApiErrorResponse, ApiResponse, ApiValidationErrorResponse } from '@repo/shared-types/src';
+import {
+  ApiErrorResponse,
+  ApiResponse,
+  ApiValidationErrorResponse,
+} from '@repo/shared-types/src';
 
 export abstract class BaseController {
   /**
@@ -28,7 +32,7 @@ export abstract class BaseController {
       const response: ApiValidationErrorResponse = {
         success: false,
         error: 'Validation failed',
-        fieldErrors: errorMessages
+        fieldErrors: errorMessages,
       };
 
       res.status(400).json(response);
@@ -104,7 +108,7 @@ export abstract class BaseController {
 
     const response: ApiErrorResponse = {
       success: false,
-      error: message
+      error: message,
     };
 
     res.status(statusCode).json(response);

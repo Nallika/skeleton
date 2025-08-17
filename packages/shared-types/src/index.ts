@@ -20,7 +20,11 @@ export interface LoginRequest {
 
 export interface ApiErrorResponse {
   success: false;
-  message: string;
+  error: string;
+}
+
+export interface ApiValidationErrorResponse extends ApiErrorResponse {
+  fieldErrors: Array<Record<string, string>>;
 }
 
 export interface RegisterRequest {

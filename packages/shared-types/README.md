@@ -13,27 +13,15 @@ This package contains TypeScript interfaces and types that are shared between th
 
 ```
 src/
-├── auth/           # Authentication related types
-├── bot/            # Bot provider interfaces
-├── chat/           # Chat and session types
-├── user/           # User related types
 └── index.ts        # Main export file
 ```
-
-## Key Types
-
-- `BotProvider` - Interface for LLM bot providers
-- `ChatSession` - Chat session data structure
-- `User` - User account information
-- `Message` - Chat message structure
-- `Vote` - User voting data
 
 ## Usage
 
 Import types in both frontend and backend:
 
 ```typescript
-import { BotProvider, ChatSession } from '@repo/shared-types';
+import { AuthData, ApiResponse, User } from '@repo/shared-types';
 ```
 
 ## Development
