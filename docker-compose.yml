@@ -1,39 +1,44 @@
 version: "3.8"
 
+# Production docker-compose file
+# Use: docker-compose up --build
+
 services:
   web:
-    container_name: web
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
-    restart: always
+    restart: unless-stopped
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - backend
+    env_file:
+      - ./apps/backend/.env
     networks:
       - app_network
+
   backend:
-    container_name: backend
     build:
       context: .
       dockerfile: ./apps/backend/Dockerfile
-    restart: always
+    restart: unless-stopped
     ports:
-      - 3001:3001
+      - "3001:3001"
     depends_on:
       - mongo
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/botsBitsWars
+    env_file:
+      - ./apps/backend/.env
     networks:
       - app_network
 
   mongo:
-    image: mongo:latest
-    container_name: mongodb
-    restart: always
+    image: mongo:7.0-jammy
+    restart: unless-stopped
     ports:
       - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=skeleton
     volumes:
       - mongo-data:/data/db
     networks:
@@ -42,8 +47,6 @@ services:
 volumes:
   mongo-data:
 
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
 networks:
   app_network:
-    external: true
+    driver: bridge

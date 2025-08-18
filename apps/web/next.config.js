@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable standalone output for Docker
+  output: 'standalone',
+
   // Proxy API requests to backend in development
   async rewrites() {
     if (process.env.NODE_ENV === 'development') {

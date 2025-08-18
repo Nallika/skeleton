@@ -70,28 +70,32 @@ skeleton/
 
 ## 🐳 Docker
 
-### Development with Docker
-
-```bash
-# Create network for container communication
-docker network create app_network
-
-# Build and start all services
-docker-compose up --build
-
-# Access the application
-# Frontend: http://localhost:3000
-# Backend: http://localhost:3001
-```
-
 ### Production Build
 
 ```bash
-# Build production images
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
+docker-compose up --build -d
 
-# Start production services
-docker-compose up -d
+# View logs
+docker-compose logs -f
+
+# Stop services
+pnpm docker:down
+```
+
+### Useful Docker Commands
+
+```bash
+# View running containers
+docker ps
+
+# View logs for specific service
+docker-compose -f docker-compose.dev.yml logs -f backend
+
+# Restart specific service in development
+docker-compose -f docker-compose.dev.yml restart backend
+
+# Complete cleanup (removes volumes and images)
+pnpm docker:clean
 ```
 
 ## 🧪 Testing
@@ -115,7 +119,6 @@ pnpm dev              # Run all apps in development mode
 pnpm dev:all          # Start both web and API servers
 pnpm dev:web          # Start only Next.js frontend
 pnpm dev:backend      # Start only Express backend
-pnpm dev:proxy        # Start all services with proxy
 
 # Building
 pnpm build            # Build all packages and apps
@@ -125,6 +128,8 @@ pnpm clean            # Clean all build outputs
 pnpm format           # Format all code with Prettier
 pnpm format:check     # Check code formatting
 pnpm type-check       # Run TypeScript type checking
+pnpm test             # Run all tests
+pnpm test:coverage    # Run tests with coverage
 ```
 
 ## 📄 License

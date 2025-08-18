@@ -1,6 +1,6 @@
 {
   "name": "skeleton",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,8 +9,6 @@
     "dev:all": "concurrently \"pnpm dev:web\" \"pnpm dev:backend\"",
     "dev:web": "turbo run dev --filter=web",
     "dev:backend": "turbo run dev --filter=backend",
-    "dev:proxy": "concurrently \"pnpm dev:web\" \"pnpm dev:backend\" \"pnpm dev:proxy-server\"",
-    "dev:proxy-server": "node scripts/dev-proxy.js",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,json}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,md,json}\"",
     "type-check": "turbo run type-check",
@@ -26,7 +24,6 @@
     "@types/react-dom": "^18.3.7",
     "concurrently": "^9.1.0",
     "express": "^4.18.3",
-    "http-proxy-middleware": "^2.0.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
