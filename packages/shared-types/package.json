@@ -1,6 +1,6 @@
 {
   "name": "@repo/shared-types",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -13,7 +13,11 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "bump": "sh ../../scripts/bump.sh",
+    "bump:patch": "sh ../../scripts/bump.sh patch",
+    "bump:minor": "sh ../../scripts/bump.sh minor",
+    "bump:major": "sh ../../scripts/bump.sh major"
   },
   "devDependencies": {
     "typescript": "5.5.4"

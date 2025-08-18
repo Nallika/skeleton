@@ -28,6 +28,18 @@
     },
     "clean": {
       "cache": false
+    },
+    "bump": {
+      "cache": false
+    },
+    "bump:patch": {
+      "cache": false
+    },
+    "bump:minor": {
+      "cache": false
+    },
+    "bump:major": {
+      "cache": false
     }
   }
 }

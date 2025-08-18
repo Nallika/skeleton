@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -8,7 +8,11 @@
     "start": "next start",
     "type-check": "tsc --noEmit",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "bump": "sh ../../scripts/bump.sh",
+    "bump:patch": "sh ../../scripts/bump.sh patch",
+    "bump:minor": "sh ../../scripts/bump.sh minor",
+    "bump:major": "sh ../../scripts/bump.sh major"
   },
   "dependencies": {
     "axios": "^1.11.0",

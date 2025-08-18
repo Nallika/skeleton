@@ -4,6 +4,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+ORANGE='\033[0;33m'
 NC='\033[0m' # No Color
 
 printf "${YELLOW}🔍 Running pre-commit checks...${NC}\n"
@@ -17,3 +18,4 @@ if [ $LINT_STAGED_EXIT_CODE -ne 0 ]; then
 fi
 
 printf "${GREEN}✅ All pre-commit checks passed!${NC}\n"
+printf "${ORANGE}🎃 Don't forget to bump versions!${NC}\n"
